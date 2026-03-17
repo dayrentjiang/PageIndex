@@ -1,0 +1,19 @@
+:root {
+  --text: #4b5563;
+  --text-h: #111827;
+  --bg: #f9fafb;
+  --card-bg: #ffffff;
+  --border: #e5e7eb;
+  --accent: #2563eb;
+  --accent-light: #dbeafe;
+  --highlight: #fef08a;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { margin: 0; }

@@ -31,3 +31,23 @@ def search_nodes(query: str, limit: int = 10) -> list[NodeResult]:
     conn.close()
 
     return [NodeResult(**row) for row in rows]
+
+
+ALL_NODES_SQL = """
+    SELECT
+        node_id, doc_name, title, summary, text,
+        start_page, end_page, parent_node_id, depth,
+        0.0 AS rank
+    FROM nodes
+    ORDER BY node_id;
+"""
+
+
+def get_all_nodes() -> list[NodeResult]:
+    conn = get_connection()
+    cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+    cur.execute(ALL_NODES_SQL)
+    rows = cur.fetchall()
+    cur.close()
+    conn.close()
+    return [NodeResult(**row) for row in rows]
