@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: pageindex_db
+    environment:
+      POSTGRES_USER: pageindex
+      POSTGRES_PASSWORD: pageindex
+      POSTGRES_DB: pageindex
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
